@@ -106,9 +106,7 @@ Steps for nonzero node:
 
 At the end of this procedure, all the nodes are ready for the first turn.
 
-
-![handshake_sketch](images/handshake_step1.png)
-![handshake_sketch](images/handshake_step2.png)
+<img src="images/handshake_step1.png" title="handshake_sketch1" width=400/> <img src="images/handshake_step2.png" title="handshake_sketch2" width=400/>
 
 ---
 
