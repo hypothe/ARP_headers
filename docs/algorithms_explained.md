@@ -26,7 +26,7 @@ Some other important remarks:
 	They are here since they are indirectly used by other, higher level, functions, that "mask" their inner workings for our purposes.
 -	There are fields whose name starts with the double underscore;
 	these are meant to be private, so using those variables/functions/macros in the code is not encouraged, unless… 
-	the same stuff we discussed previously 😊
+	the same stuff we discussed previously.
 	
 Some names of important data structure which we have to instantiate in our code:
 
@@ -106,6 +106,10 @@ Steps for nonzero node:
 
 At the end of this procedure, all the nodes are ready for the first turn.
 
+
+![handshake_sketch](images/handshake_step1.png)
+![handshake_sketch](images/handshake_step2.png)
+
 ---
 
 ## Turn
@@ -182,6 +186,9 @@ We consider two different measures for the time to which to compute the bandwidt
 - the time that each message used to travel in the network (thus excluding the computational
 time inside each node). This is why the Turn Leader receives a copy of all messages, so that it can know precisely the "fly time" of
 each message.  
+
+*Total_Bandwidth*: 10x(dimension_of_each_message)/total_time  
+*Fly_Bandwidth*: 10x(dimension_of_each_message)/fly_time
 >> 	NOTE: we cannot be sure to receive *ordered* messages, since we have multiple sender... however, this is actually not as issue,
 	since we can simply sum all "sent" times (including the time at which the Turn Leader sent the first message) and subtract all the
 	"recv" times (including the instant at which the Turn Leader received the message from the last unvisited node in the chain).
