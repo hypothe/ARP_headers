@@ -4,7 +4,7 @@
 /**
  * initialize server connection without accept a client
  */
-int server_init( ){
+int net_server_init( ){
 	
 	//structures server address
 	struct sockaddr_in serv_addr;
@@ -44,7 +44,7 @@ int server_init( ){
 /**
  * function to accept a client
  **/
-int accept_client(int sockfd, struct sockaddr_in* p_cli_addr){
+int net_accept_client(int sockfd, struct sockaddr_in* p_cli_addr){
 	
 	int newsockfd, 	 	//file descriptor result of accept
 		clilen;			//client address size
@@ -65,7 +65,7 @@ int accept_client(int sockfd, struct sockaddr_in* p_cli_addr){
 /**
  * function to connect client to server specifying IP address and port num
  */
-int client_connection(char *IPaddr) {
+int net_client_connection(char *IPaddr) {
 	
 	//socket file descriptor
 	int sockfd, ret;
