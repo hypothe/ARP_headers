@@ -15,8 +15,8 @@ finding functions and understanding their uses. Here are all the main namespaces
 -	**hsh_** prefix for the functions within the handshake module
 -	**vote_** prefix dedicated to the functions for the votation step
 -	**message_** prefix for the methods we have to use for the common message 
+-	**net_** prefix for the functions that handle sockets
 
-Pay attention: the module connection hasn’t a prefix, please take a look to the header of this module.
 Some other important remarks:
 
 -	most of the times, we don’t need to interact directly with the custom types of the library; 
@@ -33,6 +33,7 @@ Some names of important data structure which we have to instantiate in our code:
 -	**handshake_t** the type of message used to perform the handshake step (the first thing to do at the start of the algorithm!)
 -	**votation_t** to be used during votation step (first part of each turn), where a new Turn Leader
 -	**message_t** is the standard message exchanged during the turn
+-	**stat_t** is the message used for sending the statistics to RURZ's server
 
 ---
 
