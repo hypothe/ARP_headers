@@ -4,12 +4,14 @@
 /**
  * initialize server connection without accept a client
  */
-int server_init(int portno){
+int server_init( ){
 	
 	//structures server address
 	struct sockaddr_in serv_addr;
 	int sockfd;
 	int ret;
+
+    int portno = ARPNET_STD_PORTNO;
 	
 	// Creating socket file descriptor 
     if((ret = socket(AF_INET, SOCK_STREAM, 0)) == 0){ 
@@ -63,10 +65,12 @@ int accept_client(int sockfd, struct sockaddr_in* p_cli_addr){
 /**
  * function to connect client to server specifying IP address and port num
  */
-int client_connection(char *IPaddr, int portno) {
+int client_connection(char *IPaddr) {
 	
 	//socket file descriptor
 	int sockfd, ret;
+
+    int portno = ARPNET_STD_PORTNO;
 
 	//structures for socket connection
     struct sockaddr_in serv_addr;
