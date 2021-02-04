@@ -1,4 +1,10 @@
 #include "statistics.h"
+#include <string.h>
+#include <stdio.h>
+
+char RURZ_IP_STR[16] = "0.0.0.0";
+int RURZ_PORTNO = -1;
+
 // initialize stat message
 void stat_message_init(stat_t *st_msg){
 	st_msg->tot_bitrate = 0.0;
@@ -13,7 +19,11 @@ void stat_message_set_flyBitrate(stat_t *st_msg, float fly_bitrate){
 	st_msg->fly_bitrate = fly_bitrate;
 }
 
-void stat_get_serverInfo(char** p_strIP, int* p_portno){
-	*(p_strIP) = RURZ_IP_STR;
-	*(p_portno)= RURZ_PORTNO;
+void stat_get_serverInfo(char* strIP, int* p_portno){
+	printf("In func\n"); fflush(stdout);
+	printf("RURZ_IP_STR: %s\n", RURZ_IP_STR); fflush(stdout);
+	printf("In func\n"); fflush(stdout);
+	strncpy(strIP, RURZ_IP_STR, 16);
+	printf("strIP: %s\n", strIP); fflush(stdout);
+		*(p_portno)= RURZ_PORTNO;
 }
