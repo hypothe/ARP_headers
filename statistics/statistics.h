@@ -1,9 +1,6 @@
 #ifndef _STATISTICS_H_
 #define _STATISTICS_H_
 
-char* RURZ_IP_STR = '\0';
-int RURZ_PORTNO = -1;
-
 // the type of the message reserved to saving the statistics
 typedef struct stat_message
 {
@@ -50,12 +47,12 @@ void stat_message_set_flyBitrate(stat_t *st_msg, float fly_bitrate);
 * Return values are stored in the pointed arguments.
 *
 * Arguments
-*   **p_strIP - pointer to the string in which the
+*   *strIP - pointer to the string in which the
 *			IPv4 address of the server will be saved
 *	*p_portno - pointer to the int in which the
 *			port number of the server will be saved
 *
 **************************************************/
-void stat_get_serverInfo(char** p_strIP, int* p_portno);
+void stat_get_serverInfo(char* strIP, int* p_portno);
 
 #endif
