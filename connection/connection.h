@@ -48,7 +48,8 @@ int net_server_init( );
 *		process is waiting of for a connection 
 *		request;
 *	p_cli_addr - a pointer to a struct where data
-*		of the client will be inserted;
+*		of the client will be inserted; NULL if 
+*       not used
 *
 * Return
 *	newsockfd - the file descriptor of the newly
