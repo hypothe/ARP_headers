@@ -170,6 +170,7 @@ simply as the first message out of a series of 10.
 	into the Turn Leader "approach" if we happen to be it. Or, probably easier, considering the first message separately from the
 	following nine ones, entering either the "normal" or "turn leader" cycles accordingly.
 
+<img src="images/init_step1.png" title="init_sketch1" width=400/> <img src="images/init_step2.png" title="init_sketch2" width=400/>
 
 ### "(broken) telephone"
 
@@ -243,3 +244,4 @@ d.	otherwise, go on
 12. Then perform a new election, unless we already performed 10 of them (GOTO "votation" phase), else...
 13. Exit
 
+<img src="images/turn_step1.png" title="turn_sketch1" width=400/> <img src="images/turn_step2.png" title="turn_sketch2" width=400/>
