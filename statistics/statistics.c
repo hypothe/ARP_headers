@@ -20,10 +20,6 @@ void stat_message_set_flyBitrate(stat_t *st_msg, float fly_bitrate){
 }
 
 void stat_get_serverInfo(char* strIP, int* p_portno){
-	printf("In func\n"); fflush(stdout);
-	printf("RURZ_IP_STR: %s\n", RURZ_IP_STR); fflush(stdout);
-	printf("In func\n"); fflush(stdout);
 	strncpy(strIP, RURZ_IP_STR, 16);
-	printf("strIP: %s\n", strIP); fflush(stdout);
-		*(p_portno)= RURZ_PORTNO;
+	*(p_portno)= RURZ_PORTNO;
 }
