@@ -102,8 +102,11 @@ int iptab_set_unavailable(node_id n)
     if( n < 0 || n >= __IP_TABLE_LEN )
         return -1;
 
-    __ip_table[n].ip_avail = __NOD_NOT_AVAILABLE;
-    __ip_table_available_nodes--;
+    if( __ip_table[n].ip_avail != __NOD_NOT_AVAILABLE )
+    {
+        __ip_table[n].ip_avail = __NOD_NOT_AVAILABLE;
+        __ip_table_available_nodes--;
+    }
 
     return 0;
 }
@@ -115,8 +118,11 @@ int iptab_set_available(node_id n)
     if( n < 0 || n >= __IP_TABLE_LEN )
         return -1;
 
-    __ip_table[n].ip_avail = __NOD_AVAILABLE;
-    __ip_table_available_nodes++;
+    if( __ip_table[n].ip_avail != __NOD_AVAILABLE )
+    {
+        __ip_table[n].ip_avail = __NOD_AVAILABLE;
+        __ip_table_available_nodes++;
+    }
 
     return 0;
 }
