@@ -90,7 +90,7 @@ int net_client_connection(char *IPaddr)
     
     //create socket
     if ((ret = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
-        perror("ERROR opening socket");
+        //perror("ERROR opening socket");
         return ret;
 	}
 	sockfd = ret;
