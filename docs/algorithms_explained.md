@@ -215,9 +215,12 @@ d.	otherwise, go on
 6.	Set the IDs (*msg_set_ids(...)*): the turn leader is the same we received, and the ID is our ID
 7.	Now it is possible to fill in the sending time (*msg_set_sent(...)*)
 8.	And deliver the message to the next node, whatever it will be.
-9.	We have then to be ready for the next message: the votation_t or another message_t, depending on how many times we passed into
+9.	**only if you're not the last node**, send a copy of the same message to the turn leader. It's important to take into account 
+	this:*don't send twice this message to the turn leader*. So, if the node is not the last one of the turn, it have to execute this 
+	step; otherwise, go on. 
+10.	We have then to be ready for the next message: the votation_t or another message_t, depending on how many times we passed into
 	this loop
-10.	If we already performed 10 turns for all 10 different Turn Leaders, exit.
+11.	If we already performed 10 turns for all 10 different Turn Leaders, exit.
 
 #### Algorithm for the turn leader:
 
@@ -234,10 +237,12 @@ d.	otherwise, go on
 	example "server2" seen during the course (however, without the need for a fork, since it's enough here to simply save the
 	recv and sent times in the messages read and then close() that socket). Since we assume that all nodes in the net will be 
 	reachable (so no one will disconnect after the initial handshake phase, a simplifying assumption) the loop can simply be a for()
-	with as many iterations as there are reachable nodes (-1 for the Turn Leader itslef of course!).
-9.	We then compute the bandwidth on both the total time and the total fly time, and save those values.
+	with as many iterations as there are reachable nodes (-1 for the Turn Leader itslef of course!). The node will wait for *as many *
+	*messages as the available nodes, minus 1*. For instance, assume we have 10 nodes in the net, but only 5 among those are available; so, the 
+	turn leader has to wait for only 4 messages; remember that the last message is sent once.
+9.	We then compute the bandwidth on both the total time and the total fly time (see formulas on the sketch), and save those values. 
 10.	Be ready for another turn if we're not in the last turn (GOTO 1), or...
-11. If we performed all 10 turns we have to aggregate data and send them: we compute the average of all 10 total bitrates
+11. 	If we performed all 10 turns we have to aggregate data and send them: we compute the average of all 10 total bitrates
 	and of all 10 fly bitrates, insert those values in a stat_t message 
 	(*stat_message_init()*, *stat_message_set_totBitrate(...)*, *stat_message_set_flyBitrate(...)*)
 	and send to RURZ server (whose IP and port number can be obtained with *stat_get_serverInfo(...)*)
