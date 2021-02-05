@@ -3,11 +3,9 @@
 // the IP address table
 iptab_addr_t __ip_table[ __IP_TABLE_LEN ] =
 {
-    { "20.67.87.126", __NOD_AVAILABLE }, 	/* Marco G.F. */
-	{ "40.68.246.18", __NOD_AVAILABLE }, 	/* Bugti */
-    { "13.81.240.181", __NOD_AVAILABLE }, 	/* Federico */
-    { "40.115.2.125", __NOD_AVAILABLE }, 	/* Marco S. */
-    { "40.68.75.217", __NOD_AVAILABLE }, 	/* Zoe */
+	{ "127.0.0.1", __NOD_AVAILABLE },
+    { "0.0.0.0", __NOD_AVAILABLE },
+    { "255.255.0.255", __NOD_AVAILABLE },
 };
 
 int __ip_table_available_nodes = __IP_TABLE_LEN;
