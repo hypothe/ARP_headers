@@ -52,10 +52,5 @@ int hsh_check_availability( node_id my_id, handshake_t* hsm )
 void hsh_update_iptab( handshake_t* hsm )
 {
     for( int i=0; i<iptab_len(); i++ )
-    {
-        if( bv_marked( &hsm->available_nodes, i ) )
-            iptab_set_available( i );
-        else 
-            iptab_set_unavailable( i );
-    }
+        if( !bv_marked( &hsm->available_nodes, i ) ) iptab_set_unavailable( i );
 }
