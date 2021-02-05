@@ -8,7 +8,6 @@ iptab_addr_t __ip_table[ __IP_TABLE_LEN ] =
     { "13.81.240.181", __NOD_AVAILABLE }, 	/* Federico */
     { "40.115.2.125", __NOD_AVAILABLE }, 	/* Marco S. */
     { "40.68.75.217", __NOD_AVAILABLE }, 	/* Zoe */
-
 };
 
 int __ip_table_available_nodes = __IP_TABLE_LEN;
