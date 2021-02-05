@@ -6,7 +6,7 @@
 #include <stdint.h>
 #include <string.h>
 
-#define __IP_TABLE_LEN 3
+#define __IP_TABLE_LEN 5
 
 #define __NOD_AVAILABLE 1
 #define __NOD_NOT_AVAILABLE 0
