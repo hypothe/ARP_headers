@@ -8,7 +8,7 @@
 
 // check if a node is the starting point for the handshake
 // 1 if the node is the starting one; otherwise, 0
-int hsh_imfirtst( char* my_ip )
+int hsh_imfirst( char* my_ip )
 {
     if( my_ip == NULL )
         return 0;
