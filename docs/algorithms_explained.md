@@ -227,7 +227,9 @@ d.	otherwise, go on
 1.	If we’re the new turn leader…
 2.	We have to create a new message_t, and initialize it
 3.	Set our ID in the fields ID and TurnLeader
-4.	Mark as visited all the unavailable nodes (a simple loop, see addresstable.h for retrieving the ‘available’ flag) and ourselves.
+4.	Mark as visited all the unavailable nodes (a simple loop, see addresstable.h for retrieving the ‘available’ flag) and ourselves. *also*
+	*mark yourself as visited*; in this way, it's sufficient for the player to call *msg_all_visisted()* for understanding if it is teh last
+	node or not.
 5.	Randomly select the node to which to send the message to (*msg_rand(...)*)
 6.	Now we are ready to start the turn. we first fill the sending time, then read the generated value directly from the data 
 	structure, and save it; it will be useful to you for computing the bandwidth, since it's the time in which the first 
@@ -246,7 +248,7 @@ d.	otherwise, go on
 	and of all 10 fly bitrates, insert those values in a stat_t message 
 	(*stat_message_init()*, *stat_message_set_totBitrate(...)*, *stat_message_set_flyBitrate(...)*)
 	and send to RURZ server (whose IP and port number can be obtained with *stat_get_serverInfo(...)*)
-12. Then perform a new election, unless we already performed 10 of them (GOTO "votation" phase), else...
-13. Exit
+12. 	Then perform a new election, unless we already performed 10 of them (GOTO "votation" phase), else...
+13. 	Exit
 
 <img src="images/turn_step1.png" title="turn_sketch1" width=400/> <img src="images/turn_step2.png" title="turn_sketch2" width=400/>
