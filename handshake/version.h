@@ -3,7 +3,7 @@
 
 // the version identifier of the version is a n characters random generated string
 // the final string wll be generated with the final version
-#define __ARPNET_VER_ID_LEN 33
-#define __ARPNET_VER_ID "z124c6dh28pnoak71bj92i6nl33lmn34"
+#define __ARPNET_VER_ID_LEN 37
+#define __ARPNET_VER_ID "861xd46v16DV1GX4dg1b486j14n86vg14bv6"
 /*	Last modified Feb-05-2021	*/
 #endif
