@@ -9,6 +9,8 @@
 #include <stdio.h>
 #include <errno.h>
 #include <string.h>
+#include <fcntl.h>
+#include <sys/select.h>
 
 /**********************************************//**
 * Well-known port for the Network: 5080
@@ -116,5 +118,43 @@ int net_client_connection(char *IPaddr);
 *   >0  the new file descriptor from the accept()
 **************************************************/
 int net_accept_client_timeout(int sockfd, struct timeval* timeout, struct sockaddr_in* cli_addr);
+
+
+/**********************************************//**
+* Trying to connect to a server which IPv4 address;
+* this considers also a maximum waiting time.
+* Here select() is used on your socket.
+*
+* This function could be useful for you only in
+* the handshake phase. Otherwise, you must be
+* absolutely sure about what you're doing.
+*
+* Inside, a socket is opened and abort
+* connection with the server indicated is 
+* attempted.
+*
+* You can see the portno using the constant
+*       ARPNET_STD_PORT
+*
+* Arguments
+*	IPaddr - a string representing the name 
+*		associated with the server;
+*   timeout - how much time the accept can wait
+*       before returning; the function waits at
+*       most for the given time; if NULL, the 
+*       function is equivalent to the usual
+*       net_client_connection(). NOTE: this function
+*       doesn't alter this pointed data structure
+*       differently from the usual select().
+*       If the timeout is zero, the function is
+*       non-blocking (select returns immediately).
+*
+* Return
+*   -1  in case of error (in this case, select()
+*       returns immediately)
+*   0   if the timeout is expired
+*   >0  the new file descriptor from the connect()	
+**************************************************/
+int net_client_connection_timeout(char *ip_addr, struct timeval* timeout);
 
 #endif
