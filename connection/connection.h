@@ -83,4 +83,38 @@ int net_accept_client(int sockfd, struct sockaddr_in* cli_addr);
 **************************************************/
 int net_client_connection(char *IPaddr);
 
+
+/**********************************************//**
+* Performing an accept on a connect request,
+* considering also a time within receiving it.
+* Here select() is used on your socket.
+*
+* Inside this function an accept() is performed,
+* and errors in such process checked.
+*
+* Arguments
+*	sockfd - the file descriptor of the socket the
+*		process is waiting of for a connection 
+*		request;
+*   timeout - how much time the accept can wait
+*       before returning; the function waits at
+*       most for the given time; if NULL, the 
+*       function is equivalent to the usual
+*       net_accept_client(). NOTE: this function
+*       doesn't alter this pointed data structure
+*       differently from the usual select().
+*       If the timeout is zero, the function is
+*       non-blocking (select returns immediately).
+*	p_cli_addr - a pointer to a struct where data
+*		of the client will be inserted; NULL if 
+*       not used
+*
+* Return
+*   -1  in case of error (in this case, select()
+*       returns immediately)
+*   0   if the timeout is expired
+*   >0  the new file descriptor from the accept()
+**************************************************/
+int net_accept_client_timeout(int sockfd, struct timeval* timeout, struct sockaddr_in* cli_addr);
+
 #endif

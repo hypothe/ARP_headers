@@ -120,3 +120,39 @@ int net_client_connection(char *IPaddr)
     return sockfd;  
 }
 
+
+/*
+ *  function for accepting a connection with timeout
+ */
+int net_accept_client_timeout(int sockfd, struct timeval* timeout, struct sockaddr_in* cli_addr)
+{
+    // preserve the given timeout
+    struct timeval tbackup;
+    if( timeout != NULL ) tbackup = *timeout;
+    
+    // select on the file descriptor
+    fd_set fdset;
+    FD_ZERO( &fdset );
+    FD_SET( sockfd, &fdset );
+    int retval = select(  sockfd + 1, &fdset, NULL, NULL, timeout );
+
+    // in any case, restore the previous timeout
+    if( timeout != NULL ) *timeout = tbackup;
+
+    // inspect the return value
+    if( retval < 0 )
+    {
+        // error! close the function with -1
+        return -1;
+    }
+    else if( retval == 0 )
+    {
+        // timeout is expired! close with 0
+        return 0;
+    }
+    else
+    {
+        // you can accept the connection
+        return net_accept_accept( sockfd, cli_addr );
+    }
+}
