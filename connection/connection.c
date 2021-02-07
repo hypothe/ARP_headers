@@ -153,7 +153,7 @@ int net_accept_client_timeout(int sockfd, struct timeval* timeout, struct sockad
     else
     {
         // you can accept the connection
-        return net_accept_accept( sockfd, cli_addr );
+        return net_accept_client( sockfd, cli_addr );
     }
 }
 
