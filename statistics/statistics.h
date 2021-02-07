@@ -41,6 +41,7 @@ void stat_message_set_totBitrate(stat_t *st_msg, float tot_bitrate);
 **************************************************/
 void stat_message_set_flyBitrate(stat_t *st_msg, float fly_bitrate);
 
+// ----------------- DEPRECATED -----------------
 /**********************************************//**
 * A way of retrieving RURZserver infos
 *
@@ -53,6 +54,18 @@ void stat_message_set_flyBitrate(stat_t *st_msg, float fly_bitrate);
 *			port number of the server will be saved
 *
 **************************************************/
-void stat_get_serverInfo(char* strIP, int* p_portno);
+// void stat_get_serverInfo(char* strIP, int* p_portno);
+// ----------------- DEPRECATED -----------------
+
+/**********************************************//**
+* A way for retrieving RURZ server infos.
+* RURZ is assumed to communicate through port 5080,
+* so you don't need to know anything other than 
+* his address.
+* 
+* return:
+*   it returns the IP address of RURZ server.
+**************************************************/
+char* stat_get_RURZ_addr();
 
 #endif
