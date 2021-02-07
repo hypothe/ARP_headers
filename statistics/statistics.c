@@ -2,8 +2,8 @@
 #include <string.h>
 #include <stdio.h>
 
-char RURZ_IP_STR[16] = "0.0.0.0";
-int RURZ_PORTNO = -1;
+char* RURZ_IP_STR = "0.0.0.0";
+// int RURZ_PORTNO = -1;
 
 // initialize stat message
 void stat_message_init(stat_t *st_msg){
@@ -19,7 +19,16 @@ void stat_message_set_flyBitrate(stat_t *st_msg, float fly_bitrate){
 	st_msg->fly_bitrate = fly_bitrate;
 }
 
+// ----------------- DEPRECATED -----------------
+/*
 void stat_get_serverInfo(char* strIP, int* p_portno){
 	strncpy(strIP, RURZ_IP_STR, 16);
 	*(p_portno)= RURZ_PORTNO;
+}
+*/
+// ----------------- DEPRECATED -----------------
+
+char* stat_get_RURZ_addr()
+{
+	return RURZ_IP_STR;
 }
