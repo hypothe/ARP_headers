@@ -59,12 +59,15 @@ void stat_message_set_flyBitrate(stat_t *st_msg, float fly_bitrate);
 
 /**********************************************//**
 * A way for retrieving RURZ server infos.
+*
 * RURZ is assumed to communicate through port 5080,
 * so you don't need to know anything other than 
 * his address.
 * 
 * return:
-*   it returns the IP address of RURZ server.
+*	RURZ_IP - the IP address, as a string, of RURZ
+*			server
+*
 **************************************************/
 char* stat_get_RURZ_addr();
 

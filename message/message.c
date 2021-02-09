@@ -100,7 +100,7 @@ node_id msg_rand( message_t* msg )
     // get the random index
     int n = 0;
     if( max > 1 )
-        n = rdmindex(0, max);
+        n = rdmindex(0, max-1);
 
     return idx[n];
 }

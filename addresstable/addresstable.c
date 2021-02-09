@@ -3,12 +3,16 @@
 // the IP address table
 iptab_addr_t __ip_table[ __IP_TABLE_LEN ] =
 {
+    { "40.68.196.128", __NOD_AVAILABLE }, 	/* Enrico F. */
+    //{ "20.71.216.242", __NOD_AVAILABLE }, 	/* Matte A. */
+    //{ "40.68.196.74", __NOD_AVAILABLE }, 	/* Francesc G. */
     { "20.67.87.126", __NOD_AVAILABLE }, 	/* Marco G.F. */
-	{ "40.68.246.18", __NOD_AVAILABLE }, 	/* Bugti */
-    { "13.81.240.181", __NOD_AVAILABLE }, 	/* Federico */
-    { "40.115.2.125", __NOD_AVAILABLE }, 	/* Marco S. */
-    { "40.68.75.217", __NOD_AVAILABLE }, 	/* Zoe */
 };
+
+//	{ "40.68.246.18", __NOD_AVAILABLE }, 	/* Bugti */
+//  { "13.81.240.181", __NOD_AVAILABLE }, 	/* Federico */
+//  { "40.115.2.125", __NOD_AVAILABLE }, 	/* Marco S. */
+//  { "40.68.75.217", __NOD_AVAILABLE }, 	/* Zoe */
 
 int __ip_table_available_nodes = __IP_TABLE_LEN;
 
@@ -67,22 +71,6 @@ node_id iptab_get_next( node_id my )
 
     return n;
 }
-
-/* DEPRECATED
-// get the ID of the previous node in the table (in order)
-node_id iptab_get_prev( node_id my )
-{
-    node_id n = my;
-    do
-    {
-        n--;
-        if( n < 0 ) n = __IP_TABLE_LEN - 1;
-    }
-    while ( __ip_table[n].ip_avail == __NOD_NOT_AVAILABLE );
-
-    return n;
-}
-*/
 
 // ------------------------
 //  OPS ON "AVAILABLE" FLAG
