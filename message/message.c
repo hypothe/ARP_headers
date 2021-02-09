@@ -76,7 +76,7 @@ int msg_all_visited( message_t* msg )
 }
 
 // choose randomly an unvisited node, without marking the returned index in the message
-node_id msg_rand( message_t* msg )
+int msg_rand( message_t* msg )
 {
     if( bv_all_marked( &msg->vis_set ) ) return -1;
 
@@ -100,7 +100,7 @@ node_id msg_rand( message_t* msg )
     // get the random index
     int n = 0;
     if( max > 1 )
-        n = rdmindex(0, max);
+        n = rdmindex(0, max-1);
 
     return idx[n];
 }
