@@ -244,8 +244,8 @@ d.	otherwise, go on
 	turn leader has to wait for only 4 messages; remember that the last message is sent once.
 9.	We then compute the bandwidth on both the total time and the total fly time (see formulas on the sketch), and save those values. 
 10.	Be ready for another turn if we're not in the last turn (GOTO 1), or...
-11. 	If we performed all 10 turns we have to aggregate data and send them: we compute the average of all 10 total bitrates
-	and of all 10 fly bitrates, insert those values in a stat_t message 
+11. 	If we performed all 10 turns we have to aggregate data and send them: we compute the average of all 10 total times
+	and of all 10 fly times, compute the total and fly bandwidths and insert those values in a stat_t message 
 	(*stat_message_init()*, *stat_message_set_totBitrate(...)*, *stat_message_set_flyBitrate(...)*)
 	and send to RURZ server (whose IP and port number can be obtained with *stat_get_serverInfo(...)*)
 12. 	Then perform a new election, unless we already performed 10 of them (GOTO "votation" phase), else...
