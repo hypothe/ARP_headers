@@ -81,7 +81,7 @@ int msg_rand( message_t* msg )
     if( bv_all_marked( &msg->vis_set ) ) return -1;
 
     const int len = iptab_len();
-    node_id idx[len];
+    int idx[len];
     int max = 0;
 
     // initialize the mapping (probably useless, just for reliability of the returned value)
