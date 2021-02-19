@@ -51,7 +51,7 @@ int iptab_get_ID_of(char* ip)
 }
 
 // get the ID of the next available node in the table (in order)
-node_id iptab_get_next( node_id my )
+int iptab_get_next( node_id my )
 {
     node_id n = my;
 	/* If there is no available node we would loop forever */
