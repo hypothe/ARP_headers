@@ -83,7 +83,7 @@ int iptab_get_ID_of(char* ip);
 * Return
 *	n - The ID of the next node;
 ****************************************************************************/
-node_id iptab_get_next( node_id my );
+int iptab_get_next( node_id my );
 
 
 
